@@ -95,3 +95,14 @@ for index in list1:
 # enumerate: 遍历索引和值
 for index, value in enumerate(list1):
     print(index, value)
+    
+print()
+
+list1 = [1, 3, 5, 7, 100]
+list1.append(200)
+# 指定位置插入
+list1.insert(1, 400)
+# 合并
+list1.extend([2, 4, 6, 8])
+print(list1)        # [1, 400, 3, 5, 7, 100, 200, 2, 4, 6, 8]
+print(len(list1))   # 11
