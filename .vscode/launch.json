@@ -9,8 +9,8 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            // "console": "integratedTerminal",    // VS Code内部集成终端
-            "console": "externalTerminal",
+            // "console": "integratedTerminal",    // VS Code内部集成终端（Mac OS）
+            "console": "externalTerminal",      // VS Code外部终端集成（Windows）
             "justMyCode": true
         }
     ]

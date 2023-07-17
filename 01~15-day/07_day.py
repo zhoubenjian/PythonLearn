@@ -1,3 +1,6 @@
+import sys
+
+
 s1 = 'hello world!'
 s2 = "hello world!"
 # 以三个双引号或单引号开头的字符串可以折行
@@ -100,9 +103,87 @@ print()
 
 list1 = [1, 3, 5, 7, 100]
 list1.append(200)
-# 指定位置插入
+# 指定位置插入(insert)
 list1.insert(1, 400)
 # 合并
 list1.extend([2, 4, 6, 8])
-print(list1)        # [1, 400, 3, 5, 7, 100, 200, 2, 4, 6, 8]
-print(len(list1))   # 11
+print(list1)            # [1, 400, 3, 5, 7, 100, 200, 2, 4, 6, 8]
+print(len(list1))       # 11
+
+# 是否存在
+if 3 in list1:
+    list1.remove(3)         # 移除元素3
+if 250 in list1:
+    list1.remove(250)       # 不存在，无法移除
+print(list1)
+
+# 删除指定位置元素(pop)
+list1.pop(0)
+print(list1)                # [400, 5, 7, 100, 200, 2, 4, 6, 8]
+list1.pop(len(list1) - 1)  
+print(list1)                # [400, 5, 7, 100, 200, 2, 4, 6]    
+
+print()
+
+# list 切片
+fruits1 = ['apple', 'banana', 'mango', 'orange'] 
+fruits1 += ['pear', 'strawberry', 'watermelon'] 
+print(fruits1)              # ['apple', 'banana', 'mango', 'orange', 'pear', 'strawberry', 'watermelon']
+
+fruits2 = fruits1[1:4]
+print(fruits2)              # ['banana', 'mango', 'orange']
+
+# 完整复制
+fruits3 = fruits1[:]        
+print(fruits3)              # ['apple', 'banana', 'mango', 'orange', 'pear', 'strawberry', 'watermelon']
+
+fruits4 = fruits1[-3:-1]
+print(fruits4)              # ['pear', 'strawberry']     
+
+# 可以通过反向切片操作来获得倒转后的列表的拷贝 
+fruits5 = fruits1[::-1]     
+print(fruits5)              # ['watermelon', 'strawberry', 'pear', 'orange', 'mango', 'banana', 'apple']
+
+print()
+
+# list 排序
+list1 = ['banana', 'mango', 'apple', 'orange']
+# sorted函数返回列表排序后的拷贝不会修改传入的列表
+list2 = sorted(list1)
+print(list2)                # ['apple', 'banana', 'mango', 'orange']
+
+# 转置
+list3 = sorted(list1, reverse=True)
+print(list3)                # ['orange', 'mango', 'banana', 'apple']
+
+# 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序
+list4 = sorted(list1, key=len)
+print(list4)                # ['mango', 'apple', 'banana', 'orange']
+
+# 给列表对象发出排序消息直接在列表对象上进行排序
+list1.sort(reverse=True)
+print(list1)                # ['orange', 'mango', 'banana', 'apple']
+
+print()
+
+# 生成式和生成器
+
+f = [x for x in range(1, 10)]
+print(f)                    # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+f = [x + y for x in 'abc' for y in '1234']
+print(f)                    # ['a1', 'a2', 'a3', 'a4', 'b1', 'b2', 'b3', 'b4', 'c1', 'c2', 'c3', 'c4']
+
+# 用列表的生成表达式语法创建列表容器
+# 用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间
+f = [x ** 2 for x in range(1, 1000)]
+print(sys.getsizeof(f))     # 查看对象占用内存的字节数
+# print(f)
+
+# 请注意下面的代码创建的不是一个列表而是一个生成器对象
+# 通过生成器可以获取到数据但它不占用额外的空间存储数据
+# 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)
+f = (x ** 2 for x in range(1, 1000))
+print(sys.getsizeof(f))     # 相比生成式生成器不占用存储数据的空间
+# print(f)
+
