@@ -187,3 +187,36 @@ f = (x ** 2 for x in range(1, 1000))
 print(sys.getsizeof(f))     # 相比生成式生成器不占用存储数据的空间
 # print(f)
 
+print()
+
+# 元组
+
+# 定义元组
+t = ('Benjamin', 28, True, '江苏南京')
+print(t)                    # ('Benjamin', 28, True, '江苏南京')
+# 获取元素
+print(t[0])                 # Benjamin
+print(t[3])                 # 江苏南京
+
+# 遍历
+for member in t:
+    print(member)
+    
+# 重新赋值
+# t[0] = 'KLOSE'              # TypeError   元组无法单独修改元素       
+t = ('KLOSE', 41, False, '德国柏林')
+print(t)                    # ('KLOSE', 41, False, '德国柏林')
+
+# 元组转列表
+list = list(t)
+print(list)                 # ['KLOSE', 41, False, '德国柏林']
+
+# 列表是可以修改它的元素的
+list[0] = '李小龙'
+list[1] = 25
+print(list)                 # ['李小龙', 25, False, '德国柏林']
+
+# 将列表转换成元组
+fruits_list = ['apple', 'banana', 'orange', 'watermelon']
+fruits_tuple = tuple(fruits_list)
+print(fruits_tuple)         # ('apple', 'banana', 'orange', 'watermelon')
