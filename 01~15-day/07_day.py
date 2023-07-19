@@ -210,13 +210,75 @@ print(t)                    # ('KLOSE', 41, False, '德国柏林')
 # 元组转列表
 list = list(t)
 print(list)                 # ['KLOSE', 41, False, '德国柏林']
-
 # 列表是可以修改它的元素的
-list[0] = '李小龙'
+list[0] = 'Bruce Lee'
 list[1] = 25
-print(list)                 # ['李小龙', 25, False, '德国柏林']
+print(list)                 # ['Bruce Lee', 25, False, '德国柏林']
 
 # 将列表转换成元组
 fruits_list = ['apple', 'banana', 'orange', 'watermelon']
 fruits_tuple = tuple(fruits_list)
 print(fruits_tuple)         # ('apple', 'banana', 'orange', 'watermelon')
+
+print()
+
+# 集合
+
+# 创建集合（元素不会重复）
+set1 = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89}
+print(set1)                 # {1, 2, 3, 34, 5, 8, 13, 21, 55, 89}
+print(len(set1))            # 10
+
+# 创建集合的构造器语法(面向对象部分会进行详细讲解)
+set2 = set(range(1, 10))
+print(set2)
+set3 = set((1, 2, 3, 3, 2, 1))
+print(set3)
+
+# 创建集合的推导式语法(推导式也可以用于推导集合)
+set4 = {num for num in range(1, 20) if num % 3 == 0 or num % 5 == 0}
+print(set4)                 # {3, 5, 6, 9, 10, 12, 15, 18}
+
+# 集合操作
+set1 = {1, 2, 3}
+set1.add(4)
+set1.add(5)
+print(set1)                 # {1, 2, 3, 4, 5}
+
+# 追加
+set1.update([10, 11])
+print(set1)                 # {1, 2, 3, 4, 5, 10, 11}  
+
+# 移除
+if 4 in set1:
+    set1.remove(4)          
+print(set1)                 # {1, 2, 3, 5, 10, 11}
+
+# 随机移除一个元素 ？？？
+set1.pop()                  
+print(set1)   
+
+# 交，并，差等集合运算
+set1 = {1, 2, 3, 5, 8, 13}
+set2 = {1, 3, 5, 7, 9}
+# 交集
+print(set1 & set2)          # {1, 3, 5}
+# print(set1.intersection(set2))
+
+# 并集
+print(set1 | set2)          # {1, 2, 3, 5, 7, 8, 9, 13}
+# print(set1.union(set2))
+
+# 差集
+print(set1 - set2)          # {8, 2, 13}
+# print(set1.difference(set2))
+
+# 对称（set1, set2非共同元素）         
+print(set1 ^ set2)          # {2, 7, 8, 9, 13}
+# print(set1.symmetric_difference(set2))
+
+# 判断子集和超集
+print(set1 >= set2)         # false   
+# print(set2.issubset(set1))
+
+  
