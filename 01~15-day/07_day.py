@@ -223,7 +223,6 @@ print(fruits_tuple)         # ('apple', 'banana', 'orange', 'watermelon')
 print()
 
 # 集合
-
 # 创建集合（元素不会重复）
 set1 = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89}
 print(set1)                 # {1, 2, 3, 34, 5, 8, 13, 21, 55, 89}
@@ -281,4 +280,69 @@ print(set1 ^ set2)          # {2, 7, 8, 9, 13}
 print(set1 >= set2)         # false   
 # print(set2.issubset(set1))
 
-  
+print()
+
+# 使用字典
+# 创建
+dict = {'小布什': 2000, '奥巴马': 2008, '特朗普': 2016, '拜登': 2020}
+print(dict)
+
+# 构造器
+# items1 = dict(one=1, two=2, three=3, four=4)  # TypeError: 'dict' object is not callable
+
+# 通过zip函数将两个序列压成字典
+# items2 = dict(zip(['a', 'b', 'c'], '123'))    # TypeError: 'dict' object is not callable
+
+# 创建字典的推导式语法
+items3 = {num: num ** 2 for num in range(1, 10)}
+print(items3)
+
+# 通过key取值
+print(dict['特朗普'])
+print(dict['小布什'])
+
+# 遍历
+for key in dict:
+    print(f'{key}:{dict[key]}')
+    
+# 更新
+dict['小布什'] = 2004
+dict['奥巴马'] = 2020
+dict.update(克林顿=1994, 老布什=1986)
+print(dict)
+
+if '老布什' in dict:
+    print(dict['老布什'])
+    
+# get获取默认值
+print(dict.get('特朗普', 2024))
+
+# 移除
+print(dict.popitem())
+print(dict.popitem())
+print(dict)
+dict.pop('拜登', 2020)
+print(dict)
+
+# 清空
+dict.clear()
+print(dict)
+
+
+print("\n********************************\n")
+
+
+# 练习
+# 1：在屏幕上显示跑马灯文字。
+import DayTrain07 as dt07
+dt07.runHourse()
+
+print('###################################')
+
+# 2：设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。
+print(dt07.captcha())
+
+print('###################################')
+
+# 3：设计一个函数返回给定文件名的后缀名。
+print(dt07.get_suffix('hello.txt', True))
