@@ -65,3 +65,4 @@ def which_day(year, month, day):
     return (total + day)
 
     
+# 练习6：打印杨辉三角。
