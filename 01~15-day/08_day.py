@@ -1,3 +1,5 @@
+import DayTrain08 as dt08
+
 class Student(object):
     # __init__是一个特殊方法用于在创建对象时进行初始化操作
     # 通过这个方法我们可以为学生对象绑定name和age两个属性
@@ -49,3 +51,5 @@ def main1():
 if __name__ == '__main__':
     main1()
     # main2()
+    
+    dt08.main()
