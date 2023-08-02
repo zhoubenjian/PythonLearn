@@ -52,4 +52,6 @@ if __name__ == '__main__':
     main1()
     # main2()
     
-    dt08.main()
+    # dt08.main1()
+    
+    dt08.main2()
