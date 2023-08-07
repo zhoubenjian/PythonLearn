@@ -54,7 +54,6 @@ class Triangle(object):
         half = self.perimeter() / 2
         return sqrt(half * (half - self._a) * half * (half - self._b) * half * (half - self._c))
     
-
 def main2():
     a, b, c = 3, 4, 5
     if Triangle.is_valid(a, b, c):
@@ -65,9 +64,85 @@ def main2():
         print('无法构成三角形.')
     
     
+    
+# 继承和多态
+class Student(Person):
+    def __init__(self, name, age, grade):
+        super().__init__(name, age)
+        self._grade = grade
+
+    @property
+    def grade(self):
+        return self._grade
+    
+    @grade.setter
+    def grade(self, grade):
+        self._grade = grade
+        
+    def study(self, course):
+        print('%s的%s正在学习%s.' % (self._grade, self._name, course))
+        
+        
+class Teacher(Person):
+    def __init__(self, name, age, title):
+        super().__init__(name, age)
+        self._title = title
+        
+    @property
+    def title(self):
+        return self._title
+    
+    @title.setter
+    def title(self, title):
+        self._title = title
+        
+    def teach(self, course):
+        print('%s%s正在讲%s.' % (self._name, self._title, course))
+
+def main3():
+    s = Student('Michael', 15, '大学')
+    s.study('math')       
+    s.play() 
+    
+    t = Teacher('Steve', 38, '校长')
+    t.teach('Python从入门到精通.')
+    t.play()
+
+
+
+# 抽象类
+from abc import ABCMeta, abstractmethod
+
+class Pet(object, metaclass=ABCMeta):
+    def __init__(self, nickname):
+        self._nickname = nickname
+        
+    # 抽象方法
+    @abstractmethod
+    def make_voice(self):
+        pass
+    
+
+class Dog(Pet):
+    def make_voice(self):
+        return '%s：汪汪汪' % self._nickname
+        
+        
+class Cat(Pet):
+    def make_voice(self):
+        return '%s：喵喵喵' % self._nickname
+    
+def main4():
+    pets = [Dog('旺财'), Cat('海胆'), Dog('阿黄')]
+    for pet in pets:
+        print(pet.make_voice())
+    
+    
         
     
 if __name__ == '__main__':
     main1()
     main2()
+    main3()
+    main4()
     
