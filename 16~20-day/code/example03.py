@@ -24,6 +24,14 @@ def fib1(num):
     for _ in range(num - 1):
         a, b = b, a + b
     return a
+
+
+def fib2(num):
+    '''生成器'''
+    a, b = 0, 1
+    for _ in range(num):
+        a, b = b, a + b
+        yield a
         
 
 
@@ -31,6 +39,12 @@ def fib1(num):
 def main():
     print(fac(5))
     print(fib1(5))
+    
+    print('------')
+    
+    generator_object = fib2(8)
+    for i in generator_object:
+        print(i)
     
 
 
